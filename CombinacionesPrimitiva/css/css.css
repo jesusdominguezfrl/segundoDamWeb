@@ -8,11 +8,31 @@ and open the template in the editor.
     Author     : usuario
 */
 
-table>tbody>tr>td , table {
+table{
     border: 1px solid black;
     border-collapse: collapse;
-    padding: 5px;
-}
-table{
     width:250px;
 }
+
+td{
+    padding: 5px;
+    font-weight: bold;
+}
+
+table>tbody>tr{
+    border-bottom: 3px solid black;
+}
+
+tr:last-child{
+    border-bottom: none;
+}
+
+td:first-child {
+    border-right: 4px solid black;
+    border-left: 0px;
+}
+
+table>tbody>tr>td{
+    border-bottom: 0px;
+}
+

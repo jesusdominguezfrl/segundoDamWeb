@@ -8,7 +8,7 @@ Math.generaApuestas = function (intNumeroApuestas) {
         }
         var aNumerosUnaCombinacion=[];
         for( intI=0; intI<6; intI++){
-           aNumerosUnaCombinacion.push(aNumeros.splice(Math.random()*aNumeros.length,1)[0]);
+           aNumerosUnaCombinacion.push(aNumeros/*.sort(function(a,b){return Math.random();})*/.splice(Math.random()*aNumeros.length,1)[0]);
         }
         return aNumerosUnaCombinacion.sort(function(a,b){return a-b;});
     }
@@ -27,7 +27,13 @@ Math.generaApuestas = function (intNumeroApuestas) {
        if(compruebaSiEsta(aCombinacion))intI--;
        else aCombinaciones.push(aCombinacion.toString());
     }
-    return aCombinaciones.sort(function(a,b){return parseInt(a.replace(/,/g,""))-parseInt(b.replace(/,/g,""));});
+    return aCombinaciones.sort(function(a,b){
+        var aCoincidenciasA=a.match(/([1-4]?[0-9])/g);
+        var aCoincidenciasB=b.match(/([1-4]?[0-9])/g);
+        var intI=0;
+        while(parseInt(aCoincidenciasA[intI])-parseInt(aCoincidenciasB[intI])===0)intI++;
+        return parseInt(aCoincidenciasA[intI])-parseInt(aCoincidenciasB[intI]);
+    });
 };
 
 
