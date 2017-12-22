@@ -17,6 +17,7 @@ table{
 td{
     padding: 5px;
     font-weight: bold;
+    border-left: 3px solid black;
 }
 
 table>tbody>tr{
@@ -32,7 +33,5 @@ td:first-child {
     border-left: 0px;
 }
 
-table>tbody>tr>td{
-    border-bottom: 0px;
-}
+
 
